@@ -1,13 +1,12 @@
 from http.server import BaseHTTPRequestHandler
-from datetime import datetime
+import time
 
 class handler(BaseHTTPRequestHandler):
 
   def do_GET(self):
     #request status is successful
     self.send_response(200)
-    self.send_header('Content-type', 'text/plain')
+    self.send_header('Last-Modified', self.date_time_string(time.time()))
     self.end_headers()
-    #where we put the data
-    self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
+    self.wfile.write('Response body\n')
     return
