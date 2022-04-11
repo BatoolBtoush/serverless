@@ -17,14 +17,14 @@ class handler(BaseHTTPRequestHandler):
         message = f"image of {name}"
 
     else:
-        message = "image of Pink Floyd - Time"
+        message = "image of PinkFloyd"
 
     message = f"\nGreetings from Python version {platform.python_version()}"
 
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
     self.end_headers()
-    self.wfile.write(message)
+    self.wfile.write(message.encode())
     
     
     return
