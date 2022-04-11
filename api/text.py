@@ -6,7 +6,7 @@ class handler(BaseHTTPRequestHandler):
   def do_GET(self):
     #request status is successful
     self.send_response(200)
-    self.send_header('Last-Modified', self.date_time_string(time.time()))
+    self.send_header('Content-type', 'text/plain')
     self.end_headers()
-    self.wfile.write('Response body\n')
+    self.wfile.write(str(time.time().encode()))
     return
