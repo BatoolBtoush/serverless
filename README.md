@@ -23,7 +23,7 @@
 
     - "**api/time**":
 
-        this path showed me a text message along with the date and time , as below:
+        this path showed me a text message along with the day, date and time as of today, as below:
 
         ![time](assets/testing-api-time.PNG)
 

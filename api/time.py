@@ -16,9 +16,9 @@ class handler(BaseHTTPRequestHandler):
 
     first_message = f"\nGreetings from Python version {platform.python_version()}"
     second_message = f"\nThis is the api/time page"
-    third_message = f"\nThis page will show the date and time as of today\n"
+    third_message = f"\nThis page will show the day, date and time as of today\n"
     time_message = time.localtime(time.time())
-    time_message_mod = time.strftime("%m/%d/%Y, %I:%M:%S, %A", time_message)
+    time_message_mod = time.strftime("%A, %m/%d/%Y, %I:%M:%S", time_message)
 
 
     self.send_response(200)
