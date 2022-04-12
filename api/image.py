@@ -14,12 +14,13 @@ class handler(BaseHTTPRequestHandler):
     name = dic.get("name")
     
     if name:
-      message = f"Aloha {name}"
+      message = f"Hey {name}"
 
     else:
-      message = "Aloha stranger"
+      message = "Hey stranger"
 
     message += f"\nGreetings from Python version {platform.python_version()}"
+    
     #request status is successful
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
