@@ -13,8 +13,16 @@ class handler(BaseHTTPRequestHandler):
     query_string_list = parse.parse_qsl(url_components.query)
     dic = dict(query_string_list)
 
+    name = dic.get("name")
+    
+    if name:
+      message = f"Aloha {name}"
 
-    first_message = f"\nGreetings from Python version {platform.python_version()}"
+    else:
+      message = "Aloha stranger"
+
+
+    message += f"\nGreetings from Python version {platform.python_version()}"
     second_message = f"\nThis is the api/time page"
     third_message = f"\nThis page will show the day, date and time as of today\n"
     time_message = time.localtime(time.time())
@@ -24,7 +32,7 @@ class handler(BaseHTTPRequestHandler):
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
     self.end_headers()
-    self.wfile.write(first_message.encode())
+    self.wfile.write(message.encode())
     self.wfile.write(second_message.encode())
     self.wfile.write(third_message.encode())
     self.wfile.write(str(time_message_mod).encode())

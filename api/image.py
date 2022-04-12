@@ -1,5 +1,6 @@
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
+import platform
 
 class handler(BaseHTTPRequestHandler):
 
@@ -10,6 +11,15 @@ class handler(BaseHTTPRequestHandler):
     query_string_list = parse.parse_qsl(url_components.query)
     dic = dict(query_string_list)
 
+    name = dic.get("name")
+    
+    if name:
+      message = f"Aloha {name}"
+
+    else:
+      message = "Aloha stranger"
+
+    message += f"\nGreetings from Python version {platform.python_version()}"
     #request status is successful
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
@@ -19,5 +29,6 @@ class handler(BaseHTTPRequestHandler):
     self.path = 'assets/time-pink-floyd.png'
     content = open(self.path, 'rb').read()
     self.wfile.write(content)
+    self.wfile.write(message.encode())
     
     return
