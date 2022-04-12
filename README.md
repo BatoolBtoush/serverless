@@ -25,5 +25,11 @@
 
         this path showed me a text message along with the day, date and time as of today, as below:
 
-        ![time](assets/testing-api-time.PNG)
+        - No name query:
+
+            ![time with no name query](assets/testing-api-time-no-query.PNG)
+
+        - With name query:
+
+            ![time with name query](assets/testing-api-time-name-query.PNG)
 
